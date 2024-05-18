@@ -1,35 +1,36 @@
+// test.spec.js
+
 describe('Hover and Click Test', () => {
-  it('double click', () => {
+  beforeEach(() => {
     cy.visit('https://www.webdriveruniversity.com/Actions/index.html');
-    cy.get('h2').dblclick(); 
+  });
+
+  it('double click', () => {
+    cy.doubleClick();
   });
 
   it('click and hold', () => {
-    cy.visit('https://www.webdriveruniversity.com/Actions/index.html');
-    cy.get('#click-box').trigger('mousedown'); 
+    cy.clickAndHold();
   });
 });
+
 describe('Drag and Drop Test', () => {
-  it('drag and drop', () => {
+  beforeEach(() => {
     cy.visit('https://www.webdriveruniversity.com/Actions/index.html');
-    cy.get('#draggable > p > b').then(($draggedElement) => {
-      cy.get('#droppable > p > b').then(($droppableElement) => {
-        const droppablePosition = $droppableElement[0].getBoundingClientRect();
-        const draggablePosition = $draggedElement[0].getBoundingClientRect();
-        const offsetX = droppablePosition.x - draggablePosition.x + 10; 
-        const offsetY = droppablePosition.y - draggablePosition.y + 10; 
-        cy.get('#draggable > p > b').trigger('mousedown', { which: 1 });
-        cy.get('body').trigger('mousemove', { clientX: draggablePosition.x + offsetX, clientY: draggablePosition.y + offsetY });
-        cy.get('#droppable > p > b').trigger('mouseup');
-      });
-    });
+  });
+
+  it('drag and drop', () => {
+    cy.dragAndDrop();
   });
 });
-describe('Hover and Click Test', () => {
-  it('hover and choose Link 1', () => {
+
+describe('Hover and Click Test for Link', () => {
+  beforeEach(() => {
     cy.visit('https://www.webdriveruniversity.com/Actions/index.html');
-    cy.get('.hover > .dropbtn').trigger('mouseover');
-    cy.get('.hover .dropdown-content').contains('Link 1').click();
+  });
+
+  it('hover and choose Link 1', () => {
+    cy.hoverAndClickLink();
   });
 });
 
