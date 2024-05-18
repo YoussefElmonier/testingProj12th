@@ -20,4 +20,4 @@ describe('Accordion Test - Manual Testing', () => {
     cy.get('#click-accordion').click().wait(5000);
     cy.get('#timeout').should('be.visible');
   });
-  
+//hamo
