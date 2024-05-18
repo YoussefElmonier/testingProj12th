@@ -19,3 +19,4 @@ describe('Accordion Test - Custom Commands', () => {
       cy.clickAndWaitForTimeout('#click-accordion', '#timeout');
   });
 });
+//
