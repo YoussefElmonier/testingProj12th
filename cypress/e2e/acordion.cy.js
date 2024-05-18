@@ -1,23 +1,22 @@
-describe('Accordion Test - Manual Testing', () => {
-    it('Visits the Accordion page and interacts with Manual Testing accordion', () => {
-      cy.visit('https://www.webdriveruniversity.com/Accordion/index.html');
-      cy.get('#manual-testing-accordion').click();
-    });
+describe('Accordion Test - Custom Commands', () => {
+  it('Visits the Accordion page and interacts with Manual Testing accordion', () => {
+      cy.visitAccordionPage();
+      cy.clickAccordion('#manual-testing-accordion');
   });
-  
+
   it('Visits the Accordion page and interacts with Cucumber accordion', () => {
-    cy.visit('https://www.webdriveruniversity.com/Accordion/index.html');
-    cy.get('#cucumber-accordion').click();
+      cy.visitAccordionPage();
+      cy.clickAccordion('#cucumber-accordion');
   });
-  
+
   it('Visits the Accordion page and interacts with Automation accordion', () => {
-    cy.visit('https://www.webdriveruniversity.com/Accordion/index.html');
-    cy.get('#automation-accordion').click();
+      cy.visitAccordionPage();
+      cy.clickAccordion('#automation-accordion');
   });
-  
+
   it('Visits the Accordion page, clicks on #click-accordion, and checks for timeout message', () => {
-    cy.visit('https://www.webdriveruniversity.com/Accordion/index.html');
-    cy.get('#click-accordion').click().wait(5000);
-    cy.get('#timeout').should('be.visible');
+      cy.visitAccordionPage();
+      cy.clickAndWaitForTimeout('#click-accordion', '#timeout');
   });
-  
+});
+/////
