@@ -135,4 +135,4 @@ Cypress.Commands.add('doubleClick', () => {
     cy.get('.hover > .dropbtn').trigger('mouseover');
     cy.get('.hover .dropdown-content').contains('Link 1').click();
   });
-//hamo  aaa
+//hamo  aaa/
